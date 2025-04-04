@@ -1,10 +1,12 @@
+if game.PlaceId == 3101667897 then
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "All In script V10",
+   Name = "Legends Of Speed | AFBLOX HUB",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "Loading Script...",
-   LoadingSubtitle = "By Unknown",
+   LoadingTitle = "Loading script......",
+   LoadingSubtitle = "By sisiterangindomie",
    Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
    DisableRayfieldPrompts = false,
@@ -18,235 +20,362 @@ local Window = Rayfield:CreateWindow({
 
    Discord = {
       Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "notinvite", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
 
-   KeySystem = false, -- Set this to true to use our key system
+   KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
-      Title = "Aeblox Hub Key system",
+      Title = "Welcome Back",
       Subtitle = "Key System",
-      Note = "Join Discord For Key", -- Use this to tell the user how to get a key
+      Note = "Join discord for key", -- Use this to tell the user how to get a key
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"AFBLOXONTOP"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"BetaTestScript"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
 
+local Tab1 = Window:CreateTab("Main", 4483362458) -- Title, Image
+local Section = Tab1:CreateSection("Auto Collect Orb")
 
---Tabs--
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto collect All Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autowins = v
+   while true do
+if not getgenv().autowins then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Blue Orb",
+    [3] = "City"
+}
 
-local Tab1 = Window:CreateTab("Fisch", 4483362458) -- Title, Image
-local Tab2 = Window:CreateTab("Blox fruit", 4483362458) -- Title, Image
-local Tab3 = Window:CreateTab("Murder Mystery 2", 4483362458) -- Title, Image
-local Tab4 = Window:CreateTab("Meme Sea", 4483362458) -- Title, Image
-local Tab5 = Window:CreateTab("Dead Rails", 4483362458) -- Title, Image
-local Tab6 = Window:CreateTab("Pets Go", 4483362458) -- Title, Image
-local Tab7 = Window:CreateTab("Exploit And Tool Giver", 4483362458) -- Title, Image
-local Tab8 = Window:CreateTab("Unload Gui", 4483362458) -- Title, Image
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+local args = {
+    [1] = "collectOrb",
+    [2] = "Orange Orb",
+    [3] = "City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+local args = {
+    [1] = "collectOrb",
+    [2] = "Yellow Orb",
+    [3] = "City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait() 
+local args = {
+    [1] = "collectOrb",
+    [2] = "Red Orb",
+    [3] = "City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Blue Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autoblue = v
+   while true do 
+if not getgenv().autoblue then return end
+   local args = {
+    [1] = "collectOrb",
+    [2] = "Blue Orb",
+    [3] = "City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+   wait() 
+end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Yellow Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autoxp = v
+   while true do
+if not getgenv().autoxp then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Yellow Orb",
+    [3] = "City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait() 
+   end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Orange Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autoop = v
+   while true do
+if not getgenv().autoop then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Orange Orb",
+    [3] = "City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Red Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autored = v
+   while true do
+if not getgenv().autored then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Red Orb",
+    [3] = "City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
 
 
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto collect gems",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autorisk = v
+   while true do
+  if not getgenv().autorisk then return end
+  local args = {
+    [1] = "collectOrb",
+    [2] = "Gem",
+    [3] = "City"
+}
 
---Button--
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Section = Tab1:CreateSection("Auto Claim Gift")
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto ClaimGift",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autogift = v
+   while true do
+if not getgenv().autogift then return end
+local args = { [1] = "claimGift", [2] = 1}
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("freeGiftClaimRemote"):InvokeServer(unpack(args))
+wait()
+local args = { [1] = "claimGift", [2] = 2}
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("freeGiftClaimRemote"):InvokeServer(unpack(args))
+wait()
+local args = { [1] = "claimGift", [2] = 3}
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("freeGiftClaimRemote"):InvokeServer(unpack(args))
+wait()
+local args = { [1] = "claimGift", [2] = 4}
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("freeGiftClaimRemote"):InvokeServer(unpack(args)) 
+wait() 
+local args = { [1] = "claimGift", [2] = 5}
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("freeGiftClaimRemote"):InvokeServer(unpack(args))
+wait()
+local args = { [1] = "claimGift", [2] = 6}
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("freeGiftClaimRemote"):InvokeServer(unpack(args))
+wait() 
+local args = { [1] = "claimGift", [2] = 7}
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("freeGiftClaimRemote"):InvokeServer(unpack(args))
+wait()
+local args = { [1] = "claimGift", [2] = 8}
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("freeGiftClaimRemote"):InvokeServer(unpack(args))
+wait() 
+end
+   end,
+})
+
+local Section = Tab1:CreateSection("Auto Rebirth")
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Rebirth",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autoagain = v
+   while true do
+if not getgenv().autoagain then return end
+local args = {
+    [1] = "rebirthRequest"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("rebirthEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Section = Tab1:CreateSection("Auto Roll Pet")
 
 local Button = Tab1:CreateButton({
-   Name = "Speed Hub [FISCH]",
+   Name = "Red Crystal(disable animation)",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+   local args = {
+    [1] = "openCrystal",
+    [2] = "Red Crystal"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("openCrystalRemote"):InvokeServer(unpack(args))
+wait()
    end,
 })
 
 local Button = Tab1:CreateButton({
-   Name = "Ronix Hub [FISCH]",
+   Name = "Blue Crystal(disable animation) ",
    Callback = function()
-      loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/578c696a8d914279642068745713a73e.lua"))()
+   local args = {
+    [1] = "openCrystal",
+    [2] = "Blue Crystal"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("openCrystalRemote"):InvokeServer(unpack(args))
+wait()
    end,
 })
 
 local Button = Tab1:CreateButton({
-   Name = "Mercury Hub [FISCH]",
+   Name = "Purple crystal(disable animation) ",
    Callback = function()
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/c019f214a19894b50f0b8e817b70d25f.lua"))()
-   end,
-})
+   local args = {
+    [1] = "openCrystal",
+    [2] = "Purple Crystal"
+}
 
-
-
-local Button = Tab1:CreateButton({
-   Name = "Lunor [Fisch]",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/Just3itx/Lunor-Loadstrings/refs/heads/main/Loader"))()
-   end,
-})
-
-local Button = Tab2:CreateButton({
-   Name = "Speed Hub [Blox Fruit]",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("openCrystalRemote"):InvokeServer(unpack(args))
+wait()
    end,
 })
 
 local Button = Tab1:CreateButton({
-   Name = "Nat Hub [FISCH]",
+   Name = "Lightning Crystal(disable animation) ",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))();
-   end,
-})
+   local args = {
+    [1] = "openCrystal",
+    [2] = "Lightning Crystal"
+}
 
-local Button = Tab4:CreateButton({
-   Name = "Redz hub [Meme Sea]",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs/heads/main/Source.lua"))()
-   end,
-})
-
-local Button = Tab7:CreateButton({
-   Name = "Aimbot",
-   Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Universal-Aimbot-Script-27281"))()
-   end,
-})
-
-local Button = Tab7:CreateButton({
-   Name = "HitBox",
-   Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/UPD-Steal-Time-andamp-Flex-Swords-Stfo-hitbox-script-29986"))()
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("openCrystalRemote"):InvokeServer(unpack(args))
+wait() 
    end,
 })
 
 
-local Button = Tab7:CreateButton({
-   Name = "Fly Toggle",
-   Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FLY-GUI-V3-19840"))()
+local Section = Tab1:CreateSection("Race")
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Join Race",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autowons = v
+   while true do
+ if not getgenv().autowons then return end
+ local args = {
+    [1] = "joinRace"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("raceEvent"):FireServer(unpack(args))
+wait()
+end
    end,
 })
 
-local Button = Tab7:CreateButton({
-   Name = "WalkSpeed",
+local Button = Tab1:CreateButton({
+   Name = "Auto Finish Race (only crassland) ",
    Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-ROBLOX-UNIVERSAL-SPEED-SCRIPT-10698"))()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1686.07495, 36.3147125, -5946.63428, -0.984812617, 0, 0.173621148, 0, 1, 0, -0.173621148, 0, -0.984812617)
+wait()
    end,
 })
 
-local Button = Tab7:CreateButton({
-   Name = "ESP",
+local Button = Tab1:CreateButton({
+   Name = "Auto Finish Race(only magma) ",
    Callback = function()
-     ODH_KEY = "" -- if you are a free user, enter your key here to auto validate.
-
-loadstring(game:HttpGet("https://api.overdrivehub.xyz/v1/auth"))()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1001.33118, 36.3147125, -10986.2178, -0.996191859, 0, -0.0871884301, 0, 1, 0, 0.0871884301, 0, -0.996191859)
+wait()
    end,
 })
 
-local Button = Tab7:CreateButton({
-   Name = "Noclip",
+local Button = Tab1:CreateButton({
+   Name = "Auto Finish Race(only Desert) ",
    Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Noclip-script-19755"))()
-   end,
-})
-
-local Button = Tab7:CreateButton({
-   Name = "Inf Jump",
-   Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Inf-Jump-script-11981"))()
-   end,
-})
-
-local Button = Tab7:CreateButton({
-   Name = "Infinite Yeild",
-   Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-InfYeiod-reupload-27320"))()
-   end,
-})
-
-local Button = Tab7:CreateButton({
-   Name = "FullBright",
-   Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FullBright-Script-14383"))()
-   end,
-})
-
-local Button = Tab7:CreateButton({
-   Name = "Dex Explorer",
-   Callback = function()
-      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Dex-Explorer-No-Key-29915"))()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.3109131, 36.3147125, -8680.45312, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+wait()
    end,
 })
 
 
-local Button = Tab3:CreateButton({
-   Name = "OverDrive H",
-   Callback = function()
-      ODH_KEY = "" -- if you are a free user, enter your key here to auto validate.
+local Section = Tab1:CreateSection("Teleport")
 
-loadstring(game:HttpGet("https://api.overdrivehub.xyz/v1/auth"))()
+
+local Button = Tab1:CreateButton({
+   Name = "Teleport Grass Course",
+   Callback = function()
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1549.26196, 25.0500736, -456.865784, 0.984812498, -0, -0.173621148, 0, 1, -0, 0.173621148, 0, 0.984812498)
+wait()
    end,
 })
 
-local Button = Tab8:CreateButton({
-   Name = "Unload",
+local Button = Tab1:CreateButton({
+   Name = "Teleport Cave",
    Callback = function()
-      Rayfield:Destroy()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9679.80566, 47.7214355, 3184.09937, -0.70625329, -0.00525486656, 0.707939804, 0.017372461, 0.999542713, 0.0247504395, -0.707746089, 0.0297787357, -0.705839038)
+wait()
    end,
 })
 
-local Paragraph = Tab8:CreateParagraph({Title = "Credits : SisiTerangIndomie", Content = "Thanksss :)"})
-
-local Button = Tab5:CreateButton({
-   Name = "Lunor [Dead Rails]",
+local Button = Tab1:CreateButton({
+   Name = "Teleport Parkour Challenge",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/Just3itx/Lunor-Loadstrings/refs/heads/main/Loader"))()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1474.52515, 25.0500736, -2058.6582, 0.173624337, 0, 0.984811902, 0, 1, 0, -0.984811902, 0, 0.173624337)
+wait()
    end,
 })
 
-local Button = Tab5:CreateButton({
-   Name = "Speed [Dead Rails]",
+local Button = Tab1:CreateButton({
+   Name = "Teleport Frost Course",
    Callback = function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()  
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2162.15112, 42.4048767, 1008.45801, 0.643055201, 0, 0.765819848, 0, 1, 0, -0.765819848, 0, 0.643055201)
+wait()
    end,
 })
-
-local Button = Tab5:CreateButton({
-   Name = "OverDrive H  [Dead Rails]",
-   Callback = function()
-      ODH_KEY = "" -- if you are a free user, enter your key here to auto validate.
-loadstring(game:HttpGet("https://api.overdrivehub.xyz/v1/auth"))()
-   end,
-})
+end
 
 
-local Button = Tab7:CreateButton({
-   Name = "Free Gamepass [Unpatched]",
-   Callback = function()
-     loadstring(game:HttpGet(('https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'),true))() 
-   end,
-})
-
-local Button = Tab7:CreateButton({
-   Name = "Tool Giver (visual)",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua"))()
-   end,
-})
-
-local Button = Tab2:CreateButton({
-   Name = "Mukuro Hub [Blox Fruit]",
-   Callback = function()
-      loadstring(game:HttpGet("https://auth.quartyz.com/scripts/Loader.lua"))()
-   end,
-})
-
-local Button = Tab2:CreateButton({
-   Name = "Tsuo Hub [FISCH]",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/Tsuoscripts"))()
-      end, 
-   }) 
-      
-  local Button = Tab6:CreateButton({
-   Name = "Speed Hub [Pets Go]",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
-   end,
-})
