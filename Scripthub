@@ -32,56 +32,13 @@ local Window = Rayfield:CreateWindow({
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"BetaTestScript"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"FreeScript"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
 
 local Tab1 = Window:CreateTab("Main", 4483362458) -- Title, Image
-local Section = Tab1:CreateSection("Auto Collect Orb")
+local Section = Tab1:CreateSection("City Farm")
 
-local Toggle = Tab1:CreateToggle({
-   Name = "Auto collect All Orb",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(v)
-   getgenv().autowins = v
-   while true do
-if not getgenv().autowins then return end
-local args = {
-    [1] = "collectOrb",
-    [2] = "Blue Orb",
-    [3] = "City"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
-wait()
-local args = {
-    [1] = "collectOrb",
-    [2] = "Orange Orb",
-    [3] = "City"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
-wait()
-local args = {
-    [1] = "collectOrb",
-    [2] = "Yellow Orb",
-    [3] = "City"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
-wait() 
-local args = {
-    [1] = "collectOrb",
-    [2] = "Red Orb",
-    [3] = "City"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
-wait()
-end
-   end,
-})
 
 local Toggle = Tab1:CreateToggle({
    Name = "Auto Collect Blue Orb",
@@ -163,19 +120,20 @@ end
    end,
 })
 
+local Section = Tab1:CreateSection("Snow Farm")
 
 local Toggle = Tab1:CreateToggle({
-   Name = "Auto collect gems",
+   Name = "Auto Collect Blue Orb",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(v)
-   getgenv().autorisk = v
+   getgenv().autoblue = v
    while true do
-  if not getgenv().autorisk then return end
-  local args = {
+if not getgenv().autoblue then return end
+local args = {
     [1] = "collectOrb",
-    [2] = "Gem",
-    [3] = "City"
+    [2] = "Blue Orb",
+    [3] = "Snow City"
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
@@ -183,6 +141,67 @@ wait()
 end
    end,
 })
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Yellow Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autoyellow = v
+   while true do
+if not getgenv().autoyellow then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Yellow Orb",
+    [3] = "Snow City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Orange Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autoorage = v
+   while true do
+if not getgenv().autoorage then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Orange Orb",
+    [3] = "Snow City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Red Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autored = v
+   while true do
+if not getgenv().autored then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Red Orb",
+    [3] = "Snow City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+   end
+   end,
+})
+  
 
 local Section = Tab1:CreateSection("Auto Claim Gift")
 
@@ -296,6 +315,48 @@ wait()
    end,
 })
 
+local Section = Tab1:CreateSection("Auto Collect Gems")
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Gems (City Farm) ",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autogame = v
+   while true do
+if not getgenv().autogame then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Gem",
+    [3] = "City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Gems (Snow Farm)",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autovicto = v
+   while true do
+if not getgenv().autovicto then return end
+   local args = {
+    [1] = "collectOrb",
+    [2] = "Gem",
+    [3] = "Snow City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
 
 local Section = Tab1:CreateSection("Race")
 
@@ -344,7 +405,6 @@ wait()
 
 local Section = Tab1:CreateSection("Teleport")
 
-
 local Button = Tab1:CreateButton({
    Name = "Teleport Grass Course",
    Callback = function()
@@ -376,6 +436,12 @@ local Button = Tab1:CreateButton({
 wait()
    end,
 })
+
+local Button = Tab1:CreateButton({
+   Name = "Teleport Snow",
+   Callback = function()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-858.358032, 0.5, 2170.35132, 0.499959469, 0, 0.866048813, 0, 1, 0, -0.866048813, 0, 0.499959469)
+wait()
+   end,
+})
 end
-
-
