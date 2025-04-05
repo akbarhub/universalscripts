@@ -202,6 +202,91 @@ wait()
    end,
 })
   
+local Section = Tab1:CreateSection("Magma City Farm")
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Blue Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().hotso = v
+   while true do
+if not getgenv().hotso then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Blue Orb",
+    [3] = "Magma City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait() 
+end
+   end,
+})
+
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Yellow Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().automanis = v
+   while true do
+if not getgenv().automanis then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Yellow Orb",
+    [3] = "Magma City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Orange  Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autosea = v
+    while true do
+if not getgenv().autosea then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Orange Orb",
+    [3] = "Magma City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Red Orb",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().automenang = v
+   while true do
+if not getgenv().automenang then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Red Orb",
+    [3] = "Magma City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait()
+end
+   end,
+})
+
+
+
 
 local Section = Tab1:CreateSection("Auto Claim Gift")
 
@@ -358,6 +443,27 @@ end
 })
 
 
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto Collect Gems (magma city farm) ",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(v)
+   getgenv().autogale = v
+   while true do
+if not getgenv().autogale then return end
+local args = {
+    [1] = "collectOrb",
+    [2] = "Gem",
+    [3] = "Magma City"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
+wait() 
+end
+   end,
+})
+
+
 local Section = Tab1:CreateSection("Race")
 
 local Toggle = Tab1:CreateToggle({
@@ -416,7 +522,7 @@ wait()
 local Button = Tab1:CreateButton({
    Name = "Teleport Cave",
    Callback = function()
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9679.80566, 47.7214355, 3184.09937, -0.70625329, -0.00525486656, 0.707939804, 0.017372461, 0.999542713, 0.0247504395, -0.707746089, 0.0297787357, -0.705839038)
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9621.94238, 76.9078827, 3739.92896, -0.819363475, 0, -0.573274553, 0, 1, 0, 0.573274553, 0, -0.819363475)
 wait()
    end,
 })
@@ -438,9 +544,18 @@ wait()
 })
 
 local Button = Tab1:CreateButton({
-   Name = "Teleport Snow",
+   Name = "Teleport Snow City",
    Callback = function()
    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-858.358032, 0.5, 2170.35132, 0.499959469, 0, 0.866048813, 0, 1, 0, -0.866048813, 0, 0.499959469)
+wait()
+   end,
+})
+
+
+local Button = Tab1:CreateButton({
+   Name = "Teleport Magma City",
+   Callback = function()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-125.325249, 5.84164286, 2539.29321, -0.0924379453, 0.0400919542, 0.994911015, 1.78705086e-05, 0.999189138, -0.0402626954, -0.995718539, -0.00370399281, -0.0923636928)
 wait()
    end,
 })
