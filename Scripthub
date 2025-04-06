@@ -232,7 +232,7 @@ wait()
 Tab1:CreateSection("Hoop Farm")
 
 local Toggle = Tab1:CreateToggle({
-	Name = "Auto Farm Hoop",
+	Name = "Auto Farm Hoop [BETA]",
 	Description = nil,
 	CurrentValue = false,
     	Callback = function(v)
