@@ -259,6 +259,14 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4650.228
 wait()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5392.49902, 297.850708, 5885.29834, -4.94718552e-05, -0.819112599, 0.573632717, -0.99999994, 4.94718552e-05, -1.55866146e-05, -1.55866146e-05, -0.573632717, -0.819112539)
 wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5666.27734, 326.553741, 6494.69971, -5.96046448e-07, 0.0871878564, 0.996191859, -1, -5.96046448e-07, -5.66244125e-07, 5.66244125e-07, -0.996191859, 0.0871878266)
+wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5361.84033, 297.850372, 7025.4126, -2.06232071e-05, -0.866040051, -0.499974549, -0.99999994, 2.06232071e-05, 5.5283308e-06, 5.5283308e-06, 0.499974549, -0.866039991)
+wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4516.79004, 221.241058, 7181.66162, 4.76837158e-05, -0.996190667, -0.0872024298, -1, -4.76837158e-05, -2.08243728e-06, -2.08243728e-06, 0.0872024298, -0.996190667)
+wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3806.31958, 299.433289, 7225.60938, 4.76837158e-05, -0.996190667, -0.0872024298, -1, -4.76837158e-05, -2.08243728e-06, -2.08243728e-06, 0.0872024298, -0.996190667)
+wait()
 end
     	end
 }, "Toggle") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
