@@ -1,0 +1,189 @@
+if game.PlaceId == 16480898254 then
+
+
+local WindUI = loadstring(game:HttpGet("https://tree-hub.vercel.app/api/UI/WindUI"))()
+
+local Window = WindUI:CreateWindow({
+    Title = "Eat The World | AFBLOX HUB [BETA]",
+    Icon = "door-open",
+    Author = "By Sisiterangindomie",
+    Folder = "CloudHub",
+    Size = UDim2.fromOffset(580, 250),
+    Transparent = true,
+    Theme = "Dark",
+    SideBarWidth = 200,
+    --Background = "rbxassetid://13511292247", -- rbxassetid only
+    HasOutline = false,
+    -- remove it below if you don't want to use the key system in your script.
+    KeySystem = { 
+        Key = { "1234", "5678" },
+        Note = "The Key is '1234' or '5678",
+        -- Thumbnail = {
+        --     Image = "rbxassetid://18220445082", -- rbxassetid only
+        --     Title = "Thumbnail"
+        -- },
+        URL = "1234", -- remove this if the key is not obtained from the link.
+        SaveKey = true, -- optional
+    },
+})
+
+
+Window:EditOpenButton({
+    Title = "Open AFBLOX HUB",
+    Icon = "monitor",
+    CornerRadius = UDim.new(0,10),
+    StrokeThickness = 2,
+    Color = ColorSequence.new( -- gradient
+        Color3.fromHex("FF0F7B"), 
+        Color3.fromHex("F89B29")
+    ),
+    --Enabled = false,
+    Draggable = true,
+})
+
+local Tabs = {
+    ButtonTab = Window:Tab({ Title = "Main", Icon = "mouse-pointer-2", Desc = "Contains interactive buttons for various actions." }),
+     ToggleTab = Window:Tab({ Title = "Upgrade", Icon = "toggle-left", Desc = "Switch settings on and off." }),
+}
+
+
+
+Tabs.ButtonTab:Section({ Title = "Auto" })
+
+
+Tabs.ButtonTab:Toggle({
+    Title = "Auto Grab",
+    Default = true,
+    Callback = function(v) 
+getgenv().autoget = v
+while true do
+if not getgenv().autoget then return end
+local args = {
+    [1] = false,
+    [2] = false,
+    [3] = false
+}
+
+game:GetService("Players").LocalPlayer.Character.Events.Grab:FireServer(unpack(args))
+wait()
+    end
+end
+})
+
+
+
+Tabs.ButtonTab:Toggle({
+    Title = "Auto Eat",
+    Default = true,
+    Callback = function(v) 
+getgenv().autowins = v
+while true do
+if not getgenv().autowins then return end
+game:GetService("Players").LocalPlayer.Character.Events.Eat:FireServer()
+wait()
+   end
+end
+})
+
+
+Tabs.ButtonTab:Section({ Title = "Auto Sell" })
+
+
+Tabs.ButtonTab:Toggle({
+    Title = "Auto Sell",
+    Default = true,
+    Callback = function(v) 
+   getgenv().autosell = v
+   while true do
+if not getgenv().autosell then return end
+local args = {
+    [1] = game:GetService("Players").LocalPlayer:WaitForChild("SmallReward")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("RewardEvent"):FireServer(unpack(args))
+wait()
+     end
+end
+})
+
+
+Tabs.ButtonTab:Section({ Title = "Auto Claim Rewards" })
+
+
+Tabs.ButtonTab:Toggle({
+    Title = "Auto Claim Rewards",
+    Default = true,
+    Callback = function(v) 
+getgenv().autorisk = v
+while true do
+if not getgenv().autorisk then return end
+local args = {
+    [1] = game:GetService("Players").LocalPlayer:WaitForChild("SmallReward")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("RewardEvent"):FireServer(unpack(args))
+wait()
+end
+    end
+})
+
+Tabs.ButtonTab:Section({ Title = "Combat" })
+
+Tabs.ButtonTab:Toggle({
+    Title = "Auto Throw",
+    Default = true,
+    Callback = function(v) 
+getgenv().autocombat = v
+while true do
+if not getgenv().autocombat then return end
+game:GetService("Players").LocalPlayer.Character.Events.Throw:FireServer()
+wait()
+   end
+end
+})
+
+
+
+Tabs.ButtonTab:Section({ Title = "Auto Vote Map" })
+
+
+Tabs.ButtonTab:Toggle({
+    Title = "Auto Vote",
+    Default = true,
+    Callback = function(v) 
+     getgenv().autovote = v
+     while true do
+if not getgenv().autovote then return end
+     local args = {
+    [1] = 1,
+    [2] = Vector2.new(0.358613133, 0.503971815)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("MapVote"):FireServer(unpack(args))
+wait()
+      end
+end
+})
+
+
+Tabs.ToggleTab:Section({ Title = "Auto Upgrade" })
+
+
+
+Tabs.ToggleTab:Toggle({
+    Title = "Auto Upgrade Max Size",
+    Default = true,
+    Callback = function(v) 
+    getgenv().autoupgrade = v
+    while true do
+ if not getgenv().autoupdgrade then return end
+ local args = {
+    [1] = "MaxSize"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PurchaseEvent"):FireServer(unpack(args))
+wait()
+   end
+end
+}) 
+end
