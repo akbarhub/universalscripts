@@ -215,4 +215,21 @@ wait()
    end
 end
 }) 
+
+Tabs.ToggleTab:Toggle({
+    Title = "Auto Upgrade Speed",
+    Default = true,
+    Callback = function(v) 
+    getgenv().autoupgrade = v
+    while true do
+ if not getgenv().autoupdgrade then return end
+ local args = {
+    [1] = "Speed"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PurchaseEvent"):FireServer(unpack(args))
+wait()
+   end
+end
+}) 
 end
