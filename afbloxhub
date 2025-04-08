@@ -23,7 +23,7 @@ local Window = WindUI:CreateWindow({
         --     Title = "Thumbnail"
         -- },
         URL = "https://discord.gg/h27bM6F5", -- remove this if the key is not obtained from the link.
-        SaveKey = true, -- optional
+        SaveKey = false, -- optional
     },
 })
 
