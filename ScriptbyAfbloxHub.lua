@@ -1,1 +1,2 @@
-print("script Down")
+print("script Maintenance!")
+print("Script down again")
